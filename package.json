@@ -1,0 +1,36 @@
+{
+  "name": "dapplescript",
+  "version": "0.0.1",
+  "description": "DappleScript - Simple Ethereum interaction Language",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "dapple",
+    "ethereum",
+    "smart-contracts",
+    "blockchain"
+  ],
+  "author": "Denis Erfurt",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "cli-color-tty": "^2.0.0",
+    "deasync": "^0.1.6",
+    "ethersim": "git+https://github.com/nexusdev/EtherSim.git",
+    "fs-extra": "^0.30.0",
+    "jison": "^0.4.17",
+    "lodash": "^4.11.2",
+    "mkdirp": "^0.5.1",
+    "read-yaml": "^1.0.0",
+    "stream-combiner": "^0.2.2",
+    "through2": "^2.0.1",
+    "tmp": "0.0.28",
+    "vinyl": "^1.1.1",
+    "write-yaml": "^0.2.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
