@@ -7,11 +7,15 @@ For use for pure awesomenes
 
 [x] sequences and sequence call
 
+[ ] environment scoping
+
 [ ] type checker
+  * on contract constructor
+  * on contract function call
+  * variables
+  * script function calls
 
 [ ] script imports
-
-[ ] environment scoping
 
 [ ] on chain interpreter
 
