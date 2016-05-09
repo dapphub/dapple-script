@@ -4,10 +4,15 @@ For use for pure awesomenes
 
 ## TODO for v0.1
 [x] script and constructor
-[ ] sequences and sequence call
-[ ] environment scoping
+
+[x] sequences and sequence call
+
 [ ] type checker
+
 [ ] script imports
+
+[ ] environment scoping
+
 [ ] on chain interpreter
 
 ### Example
