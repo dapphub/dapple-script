@@ -37,7 +37,7 @@ import VersionUpdate
 script MyDeployment {
 
   // define a constructor function for your interaction script
-  seq MyDeployment () {
+  function MyDeployment () {
 
     // deploy a new ContractA instance
     var internalObject = new ContractA()
@@ -59,7 +59,7 @@ script MyDeployment {
   }
 
   // reads and upates the current version on a registry
-  seq updateVersion (address externalObject) {
+  function updateVersion (address externalObject) {
 
     // reads the current environment and grabs the saved version
     uint8 version = this.version

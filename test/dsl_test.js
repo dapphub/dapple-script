@@ -1,6 +1,8 @@
 /* global beforeEach, it, describe */
 'use strict';
 
+// TODO - sequence can be empty
+
 var assert = require('chai').assert;
 var fs = require('fs');
 var Parser = require('../lib/DSL.js');
@@ -37,9 +39,16 @@ describe('DSL', function () {
     });
   });
 
+  it.only('shouuld accept a simple script', (done) => {
+    parser.parse('script A { function A() { var foo = "bar" } }', (err, res) => {
+      if(err) throw err;
+      assert(parser.interpreter.success);
+      done();
+    });
+  });
 
-  it.only('should recognize a constructor sequence', function (done) {
-    parser.parse('script A { seq A() {var foo = "bar" b()} seq b() {var fooo = "baz"} }', function (err, res) {
+  it('should recognize a constructor sequence', function (done) {
+    parser.parse('script A { function A() {var foo = "bar" b()} function b() {var fooo = "baz"} }', function (err, res) {
       if (err) throw err;
       assert(parser.interpreter.success);
       // parser.interpreter.run( parser.interpreter.local['A'], (err2, res2) => {

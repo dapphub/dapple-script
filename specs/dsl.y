@@ -11,7 +11,7 @@
 "export"              {return 'EXPORT'}
 "import"              {return 'IMPORT'}
 "value"               {return 'VALUE'}
-"seq"                 {return 'SEQ'}
+"function"                 {return 'FUNCTION'}
 "gas"                 {return 'GAS'}
 "script"              {return 'SCRIPT'}
 "code"                {return 'CODE'}
@@ -58,17 +58,17 @@ MAIN: SCRIPT SYMBOL '{' SEQUENCES '}' EOF
     | EOF
     ;
 
-SEQUENCES: SEQ SYMBOL '(' ARGS ')' '{' FORMULAS '}'
+SEQUENCES: FUNCTION SYMBOL '(' ARGS ')' '{' FORMULAS '}'
          { console.log($FORMULAS) }
-         | SEQ SYMBOL '(' ARGS ')' '{' '}'
-         | SEQ SYMBOL '(' ')' '{' FORMULAS '}' SEQUENCES
+         | FUNCTION SYMBOL '(' ARGS ')' '{' '}'
+         | FUNCTION SYMBOL '(' ')' '{' FORMULAS '}' SEQUENCES
          {
          var returnExpr = new yy.i.Expr(yy.i.ret, [$FORMULAS], yy.i.TYPE.EXPR);
          $SEQUENCES.value = [new yy.i.Expr( yy.i.def, [$SYMBOL, returnExpr], yy.i.TYPE.DEF )]
            .concat($SEQUENCES.value);
            $$ = $SEQUENCES;
          }
-         | SEQ SYMBOL '(' ')' '{' '}'
+         | FUNCTION SYMBOL '(' ')' '{' '}'
          | /* nothing */
          { $$ = new yy.i.Expr( [], [], yy.i.TYPE.SEQ ); }
          ;
