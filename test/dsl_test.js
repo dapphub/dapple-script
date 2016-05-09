@@ -9,7 +9,7 @@ var testenv = require('./testenv.js');
 var through = require('through2');
 var Web3Factory = require('../lib/web3Factory.js');
 
-describe.only('DSL', function () {
+describe('DSL', function () {
   this.timeout(1000000);
   var parser;
 
@@ -36,6 +36,22 @@ describe.only('DSL', function () {
       confirmationBlocks: 1
     });
   });
+
+
+  it.only('should recognize a constructor sequence', function (done) {
+    parser.parse('script A { seq A() {var foo = "bar"} }', function (err, res) {
+      if (err) throw err;
+      assert(parser.interpreter.success);
+      // parser.interpreter.run( parser.interpreter.local['A'], (err2, res2) => {
+      //   console.log(parser.interpreter.local);
+      //   done();
+      // });
+        done();
+        console.log(parser.interpreter.local);
+      // assert(parser.interpreter.local.foo.value === 'bar');
+    });
+  });
+
 
   // afterEach( function() {
   //   console.log(parser.interpreter.logs.join('\n') )

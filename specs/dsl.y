@@ -11,7 +11,9 @@
 "export"              {return 'EXPORT'}
 "import"              {return 'IMPORT'}
 "value"               {return 'VALUE'}
+"seq"                 {return 'SEQ'}
 "gas"                 {return 'GAS'}
+"script"              {return 'SCRIPT'}
 "code"                {return 'CODE'}
 "address"             {return 'ADDRESS'}
 "at"                  {return 'AT'}
@@ -27,6 +29,8 @@
 "="                   {return '='}
 "("                   {return '('}
 ")"                   {return ')'}
+"{"                   {return '{'}
+"}"                   {return '}'}
 "."                   {return '.'}
 ","                   {return ','}
 \"([^\"]*)\"          {yytext = this.matches[1]; return 'STRING';}
@@ -40,7 +44,7 @@
 
 /* operator associations and precedence */
 
-%start DSL
+%start MAIN
 
 %% /* language grammar */
 
@@ -49,7 +53,23 @@ DSL: FORMULAS
    | EOF
    ;
 
-FORMULAS: FORMULA EOF
+MAIN: SCRIPT SYMBOL '{' SEQUENCES '}' EOF
+      { return new yy.i.Expr( yy.i.script, [$SYMBOL, $SEQUENCES], yy.i.TYPE.EXPR ); }
+    | EOF
+    ;
+
+SEQUENCES: SEQ SYMBOL '(' ARGS ')' '{' FORMULAS '}'
+         { console.log($FORMULAS) }
+         | SEQ SYMBOL '(' ARGS ')' '{' '}'
+         | SEQ SYMBOL '(' ')' '{' FORMULAS '}'
+         {
+         var returnExpr = new yy.i.Expr(yy.i.ret, [$FORMULAS], yy.i.TYPE.EXPR);
+         $$ = new yy.i.Expr( yy.i.def, [$SYMBOL, returnExpr], yy.i.TYPE.DEF );
+         }
+         | SEQ SYMBOL '(' ')' '{' '}'
+         ;
+
+FORMULAS: FORMULA
           { $$ = new yy.i.Expr( [$1], [], yy.i.TYPE.SEQ ); }
         | FORMULA FORMULAS
           { $2.value = [$1].concat( $2.value ); $$ = $2; }
@@ -66,7 +86,7 @@ FORMULA: ASSERTION
        ;
 
 DECLARATION: VAR SYMBOL "=" TERM
-           { $$ = new yy.i.Expr( yy.i.assign, [ $SYMBOL, $TERM ], yy.i.TYPE.ASSIGN ); }
+           { $$ = new yy.i.Expr( yy.i.def, [ $SYMBOL, $TERM ], yy.i.TYPE.DEF ); }
            ;
 
 
