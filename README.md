@@ -42,6 +42,9 @@ script MyDeployment {
     // call a function on the contract
     externalObject.setName(internalString)
 
+    // run sequence
+    updateVersion()
+
     // persistantly save a value
     export externalObject
   }

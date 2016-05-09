@@ -39,7 +39,7 @@ describe('DSL', function () {
 
 
   it.only('should recognize a constructor sequence', function (done) {
-    parser.parse('script A { seq A() {var foo = "bar"} }', function (err, res) {
+    parser.parse('script A { seq A() {var foo = "bar" b()} seq b() {var fooo = "baz"} }', function (err, res) {
       if (err) throw err;
       assert(parser.interpreter.success);
       // parser.interpreter.run( parser.interpreter.local['A'], (err2, res2) => {

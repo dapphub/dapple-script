@@ -61,12 +61,16 @@ MAIN: SCRIPT SYMBOL '{' SEQUENCES '}' EOF
 SEQUENCES: SEQ SYMBOL '(' ARGS ')' '{' FORMULAS '}'
          { console.log($FORMULAS) }
          | SEQ SYMBOL '(' ARGS ')' '{' '}'
-         | SEQ SYMBOL '(' ')' '{' FORMULAS '}'
+         | SEQ SYMBOL '(' ')' '{' FORMULAS '}' SEQUENCES
          {
          var returnExpr = new yy.i.Expr(yy.i.ret, [$FORMULAS], yy.i.TYPE.EXPR);
-         $$ = new yy.i.Expr( yy.i.def, [$SYMBOL, returnExpr], yy.i.TYPE.DEF );
+         $SEQUENCES.value = [new yy.i.Expr( yy.i.def, [$SYMBOL, returnExpr], yy.i.TYPE.DEF )]
+           .concat($SEQUENCES.value);
+           $$ = $SEQUENCES;
          }
          | SEQ SYMBOL '(' ')' '{' '}'
+         | /* nothing */
+         { $$ = new yy.i.Expr( [], [], yy.i.TYPE.SEQ ); }
          ;
 
 FORMULAS: FORMULA
@@ -84,6 +88,7 @@ FORMULA: ASSERTION
        | TERM
        | LOG_STATEMENT
        ;
+
 
 DECLARATION: VAR SYMBOL "=" TERM
            { $$ = new yy.i.Expr( yy.i.def, [ $SYMBOL, $TERM ], yy.i.TYPE.DEF ); }
@@ -127,7 +132,8 @@ TERM: DEPLOYMENT
     { $$ = new yy.i.Expr( $1, [], yy.i.TYPE.NUMBER ); }
     | BOOLEAN
     | ADDRESS_CALL
-    | CONTRACT_AT
+    /* | CONTRACT_AT */
+    | CALL
     | REFERENCE
     | GET_CODE
     | GET_ADDRESS
@@ -141,9 +147,13 @@ GET_ADDRESS: ADDRESS '(' REFERENCE ')'
              { $$ = new yy.i.Expr( yy.i.getAddress, [$3], yy.i.TYPE.GET_ADDRESS ); }
              ;
 
-CONTRACT_AT: SYMBOL '(' TERM ')'
-             { $$ = new yy.i.Expr( yy.i.contractAt, [$1, $3], yy.i.TYPE.GET_CONTRACT ); }
-             ;
+CALL: SYMBOL '(' ')'
+    { $$ = new yy.i.Expr( yy.i.fcall, [$1], yy.i.TYPE.EXPR ) }
+    ;
+
+/* CONTRACT_AT: SYMBOL '(' TERM ')' */
+/*              { $$ = new yy.i.Expr( yy.i.contractAt, [$1, $3], yy.i.TYPE.GET_CONTRACT ); } */
+/*              ; */
 
 ADDRESS_CALL: REFERENCE '.' SYMBOL '(' ')'
             { $$ = new yy.i.Expr( yy.i.call, [$1, $3, [], { value: 0, gas: undefined }], yy.i.TYPE.CALL ); }
