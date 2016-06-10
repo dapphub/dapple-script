@@ -16,7 +16,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "cli-color-tty": "^2.0.0",
-    "dapple-chain": "0.0.1",
+    "dapple-chain": "0.0.3",
     "deasync": "^0.1.6",
     "ethersim": "git+https://github.com/nexusdev/EtherSim.git",
     "fs-extra": "^0.30.0",
