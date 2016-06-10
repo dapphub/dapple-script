@@ -1,2 +1,0 @@
-var foo = new SimpleStorage()
-export foo
