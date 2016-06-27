@@ -54,7 +54,16 @@ DSL: FORMULAS
    ;
 
 MAIN: SCRIPT SYMBOL '{' SEQUENCES '}' EOF
-      { return new yy.i.Expr( yy.i.script, [$SYMBOL, $SEQUENCES], yy.i.TYPE.EXPR ); }
+      { return new yy.i.Expr( yy.i.script, [$SYMBOL, $SEQUENCES], yy.i.TYPE.EXPR );}
+    | FORMULAS EOF
+      { var ret = new yy.i.Expr( yy.i.script, ['A',
+          new yy.i.Expr([
+            new yy.i.Expr(yy.i.def, ['A',
+              new yy.i.Expr(yy.i.ret, [$FORMULAS], yy.i.TYPE.EXPR)
+            ], yy.i.TYPE.DEF)
+          ], [], yy.i.TYPE.SEQ)
+        ], yy.i.TYPE.EXPR);
+        return ret; }
     | EOF
     ;
 
