@@ -18,7 +18,6 @@
     "cli-color-tty": "^2.0.0",
     "dapple-chain": "0.0.6",
     "deasync": "^0.1.6",
-    "ethersim": "git+https://github.com/nexusdev/EtherSim.git",
     "fs-extra": "^0.30.0",
     "jison": "^0.4.17",
     "lodash": "^4.11.2",
