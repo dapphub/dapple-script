@@ -2,7 +2,7 @@
   "name": "dapplescript",
   "version": "0.0.5",
   "description": "DappleScript - Simple Ethereum interaction Language",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
     "test": "mocha test"
   },
@@ -17,19 +17,13 @@
   "dependencies": {
     "cli-color-tty": "^2.0.0",
     "dapple-utils": "git+https://github.com/nexusdev/dapple-utils",
-    "deasync": "^0.1.6",
     "dapple-wevm": "git+https://github.com/nexusdev/dapple-wevm",
-    "fs-extra": "^0.30.0",
-    "jison": "^0.4.17",
-    "lodash": "^4.11.2",
-    "mkdirp": "^0.5.1",
-    "read-yaml": "^1.0.0",
+    "lodash": "^4.14.1",
     "stream-combiner": "^0.2.2",
     "through2": "^2.0.1",
     "tmp": "0.0.28",
-    "vinyl": "^1.1.1",
-    "web3": "^0.16.0",
-    "write-yaml": "^0.2.2"
+    "vinyl": "^1.2.0",
+    "web3": "^0.16.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
