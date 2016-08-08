@@ -15,9 +15,13 @@
   "author": "Denis Erfurt",
   "license": "GPL-3.0",
   "dependencies": {
+    "async": "^2.0.1",
+    "cli-color": "^1.1.0",
     "cli-color-tty": "^2.0.0",
+    "clui": "^0.3.1",
     "dapple-utils": "git+https://github.com/nexusdev/dapple-utils",
     "dapple-wevm": "git+https://github.com/nexusdev/dapple-wevm",
+    "inquirer": "^1.1.2",
     "lodash": "^4.14.1",
     "stream-combiner": "^0.2.2",
     "through2": "^2.0.1",
