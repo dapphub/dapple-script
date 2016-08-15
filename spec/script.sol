@@ -1,4 +1,6 @@
-contract Script {
+import "dapple/environment.sol";
+
+contract Script is DappleEnvironment {
   // bunch of events which direct the interaction
   event exportNumber(string name, uint number);
   event exportObject(string name, address addr);
