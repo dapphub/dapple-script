@@ -16,3 +16,9 @@ contract Script is DappleEnvironment {
     setCalls(false);
   }
 }
+
+// contract SH {
+//   function to_uint(string input) returns (uint){
+//     return 11;
+//   }
+// }
