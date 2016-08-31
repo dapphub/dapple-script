@@ -8,9 +8,12 @@ contract Script is DappleEnvironment {
   event setCalls(bool flag);
   event setOrigin(address origin);
 
+  function txon() { setCalls(false); }
+  function txoff() { setCalls(true); }
+
   event shUint(bytes input, uint result);
 
-  modifier static {
+  modifier notx {
     setCalls(true);
     _
     setCalls(false);
