@@ -18,6 +18,10 @@
         {
           "name": "[options]",
           "summary": "default options"
+        },
+        {
+          "name": "[--no-optimize]",
+          "summary": "turn off the optimization step during compilation"
         }
       ],
       "summary" : "",
