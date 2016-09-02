@@ -11,6 +11,14 @@ contract Script is DappleEnvironment {
   function txon() { setCalls(false); }
   function txoff() { setCalls(true); }
 
+  // function export(string name, address origin) {
+  //   exportObject(name, origin);
+  // }
+  //
+  // function export(string name, uint number) {
+  //   exportNumber(name, number);
+  // }
+
   event shUint(bytes input, uint result);
 
   modifier notx {
