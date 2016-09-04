@@ -8,8 +8,20 @@ contract Script is DappleEnvironment {
   event setCalls(bool flag);
   event setOrigin(address origin);
 
+  event assertChain(bytes32 chaintype);
+
   function txon() { setCalls(false); }
   function txoff() { setCalls(true); }
+
+  event onEnv(string env);
+  event offEnv(string env);
+
+  System system;
+  SMS sms;
+  function Script() {
+    system = System(0x0000000000000000000000000000000000000001);
+    sms = SMS(0x0000000000000000000000000000000000000002);
+  }
 
   // function export(string name, address origin) {
   //   exportObject(name, origin);
@@ -21,6 +33,18 @@ contract Script is DappleEnvironment {
 
   event shUint(bytes input, uint result);
 
+  modifier assertETH {
+    assertChain('ETH');
+    _
+  }
+
+  // execute the function on the given environment
+  modifier from(string environment) {
+    onEnv(environment);
+    _
+    offEnv(environment);
+  }
+
   modifier notx {
     setCalls(true);
     _
@@ -28,8 +52,13 @@ contract Script is DappleEnvironment {
   }
 }
 
-// contract SH {
-//   function to_uint(string input) returns (uint){
-//     return 11;
-//   }
-// }
+contract System {
+  function to_uint(string input) returns (uint output){
+    return 11;
+  }
+}
+
+contract SMS {
+  function send(string number, string message) {
+  }
+}
