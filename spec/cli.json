@@ -26,6 +26,16 @@
       ],
       "summary" : "",
       "help": ""
+    },
+    {
+      "name": "nss",
+      "summary": "deploy dapple-script to the nexus-service sidechain",
+      "options": [
+        {
+          "name": "<script>",
+          "summary": "script name"
+        }
+      ]
     }
   ]
 }
