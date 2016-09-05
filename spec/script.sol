@@ -62,3 +62,8 @@ contract SMS {
   function send(string number, string message) {
   }
 }
+
+contract Callback {
+  function on(address addr, string eventName, string functioncall) {
+  }
+}

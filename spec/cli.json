@@ -26,31 +26,6 @@
       ],
       "summary" : "",
       "help": ""
-    },
-    {
-      "name": "nss run",
-      "summary": "deploy dapple-script to the nexus-service sidechain",
-      "options": [
-        {
-          "name": "<script>",
-          "summary": "script name"
-        }
-      ]
-    },
-    {
-      "name": "nss deposit",
-      "summary": "send ether to nexus service chain pegged contract",
-      "options": [
-        {
-          "name": "<wei>",
-          "summary": "the ammount in wei you want to send"
-        }
-      ]
-    },
-    {
-      "name": "nss withdraw",
-      "summary": "wisdaw all your funds on the nexus service chain",
-      "options": []
     }
   ]
 }
