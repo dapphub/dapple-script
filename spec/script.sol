@@ -59,8 +59,7 @@ contract System {
 }
 
 contract SMS {
-  function send(string number, string message) {
-  }
+  function send(string number, string message) {}
 }
 
 contract Callback {
