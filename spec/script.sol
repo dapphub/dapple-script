@@ -35,19 +35,19 @@ contract Script is DappleEnvironment {
 
   modifier assertETH {
     assertChain('ETH');
-    _
+    _;
   }
 
   // execute the function on the given environment
   modifier from(string environment) {
     onEnv(environment);
-    _
+    _;
     offEnv(environment);
   }
 
   modifier notx {
     setCalls(true);
-    _
+    _;
     setCalls(false);
   }
 }
