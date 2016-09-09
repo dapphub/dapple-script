@@ -16,11 +16,14 @@ contract Script is DappleEnvironment {
   event onEnv(string env);
   event offEnv(string env);
 
+  // NSS stuff
+  event on(address addr, string eventName, string functioncall);
+
   System system;
   SMS sms;
   function Script() {
     system = System(0x007202eeaad2c871c74c094231d1a4d28028321b);
-    sms = SMS(0x0000000000000000000000000000000000000002);
+    sms = SMS(0x127202eeaad2c871c74c094231d1a4d28028321b);
   }
 
   // function export(string name, address origin) {
