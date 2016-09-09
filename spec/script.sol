@@ -19,7 +19,7 @@ contract Script is DappleEnvironment {
   System system;
   SMS sms;
   function Script() {
-    system = System(0x0000000000000000000000000000000000000001);
+    system = System(0x007202eeaad2c871c74c094231d1a4d28028321b);
     sms = SMS(0x0000000000000000000000000000000000000002);
   }
 
@@ -50,6 +50,8 @@ contract Script is DappleEnvironment {
     _;
     setCalls(false);
   }
+
+  function() {}
 }
 
 contract System {
