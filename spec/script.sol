@@ -1,9 +1,11 @@
+pragma solidity >=0.4.0;
+
 import "dapple/environment.sol";
 
 contract Script is DappleEnvironment {
   // bunch of events which direct the interaction
-  event exportNumber(string name, uint number);
-  event exportObject(string name, address addr);
+  event exportNumber(bytes32 name, uint number);
+  event exportObject(bytes32 name, address addr);
 
   event setCalls(bool flag);
   event setOrigin(address origin);
@@ -15,6 +17,15 @@ contract Script is DappleEnvironment {
 
   event onEnv(string env);
   event offEnv(string env);
+
+
+  function export(bytes32 name, address addr) {
+    exportObject(name, addr);
+  }
+
+  function export(bytes32 name, uint number) internal {
+    exportNumber(name, number);
+  }
 
   // NSS stuff
   event on(address addr, string eventName, string functioncall);
