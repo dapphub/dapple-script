@@ -15,8 +15,8 @@ contract Script is DappleEnvironment {
   function txon() { setCalls(false); }
   function txoff() { setCalls(true); }
 
-  event pushEnv(string env);
-  event popEnv(string env);
+  event pushEnv(bytes32 env);
+  event popEnv(bytes32 env);
 
   function export(bytes32 name, address addr) {
     exportObject(name, addr);
@@ -52,7 +52,7 @@ contract Script is DappleEnvironment {
   }
 
   // execute the function on the given environment
-  modifier from(string environment) {
+  modifier from(bytes32 environment) {
     pushEnv(environment);
     _;
     popEnv(environment);
