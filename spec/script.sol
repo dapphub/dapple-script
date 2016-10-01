@@ -1,5 +1,4 @@
 pragma solidity >=0.4.0;
-
 import "dapple/environment.sol";
 
 contract Script is DappleEnvironment {
@@ -54,6 +53,7 @@ contract Script is DappleEnvironment {
   // execute the function on the given environment
   modifier from(bytes32 environment) {
     pushEnv(environment);
+    // todo - set env to the given environment
     _;
     popEnv(environment);
   }
