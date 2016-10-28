@@ -26,12 +26,12 @@
     "lodash": "^4.15.0",
     "stream-combiner": "^0.2.2",
     "through2": "^2.0.1",
-    "tmp": "0.0.28",
-    "vinyl": "^1.2.0",
+    "tmp": "0.0.29",
+    "vinyl": "^2.0.0",
     "web3": "^0.16.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^3.1.2"
   }
 }
