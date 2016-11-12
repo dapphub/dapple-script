@@ -1,6 +1,6 @@
 {
   "name": "dapple-script",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "DappleScript - Simple Ethereum interaction Language",
   "main": "lib/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "cli-color": "^1.1.0",
     "cli-color-tty": "^2.0.0",
     "clui": "^0.3.1",
-    "dapple-core": "^0.1.29",
+    "dapple-core": "^0.1.30",
     "dapple-wevm": "^1.4.10",
     "ethereumjs-util": "^4.5.0",
     "inquirer": "^1.1.2",
