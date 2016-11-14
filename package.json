@@ -1,6 +1,6 @@
 {
   "name": "dapple-script",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "DappleScript - Simple Ethereum interaction Language",
   "main": "lib/main.js",
   "scripts": {
