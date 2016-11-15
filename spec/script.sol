@@ -1,7 +1,7 @@
 pragma solidity >=0.4.0;
-import "dapple/environment.sol";
+import "dapple/env.sol";
 
-contract Script is DappleEnvironment {
+contract Script is DappleEnv {
   // bunch of events which direct the interaction
   event exportNumber(bytes32 name, uint number);
   event exportObject(bytes32 name, address addr);
