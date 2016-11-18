@@ -22,6 +22,10 @@
         {
           "name": "[--no-optimize]",
           "summary": "turn off the optimization step during compilation"
+        },
+        {
+          "name": "[--report]",
+          "summary": "log //@log statements"
         }
       ],
       "summary" : "",
