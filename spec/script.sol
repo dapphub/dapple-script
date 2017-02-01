@@ -28,11 +28,11 @@ contract Script is DappleEnv {
   // NSS stuff
   event on(address addr, string eventName, string functioncall);
 
-  System system;
-  SMS sms;
+  // System system;
+  // SMS sms;
   function Script() {
-    system = System(0x007202eeaad2c871c74c094231d1a4d28028321b);
-    sms = SMS(0x127202eeaad2c871c74c094231d1a4d28028321b);
+    // system = System(0x007202eeaad2c871c74c094231d1a4d28028321b);
+    // sms = SMS(0x127202eeaad2c871c74c094231d1a4d28028321b);
   }
 
   // function export(string name, address origin) {
@@ -67,15 +67,15 @@ contract Script is DappleEnv {
   function() {}
 }
 
-contract System {
-  function to_uint(string input) returns (uint output){
-    return 11;
-  }
-}
+// contract System {
+//   function to_uint(string input) returns (uint output){
+//     return 11;
+//   }
+// }
 
-contract SMS {
-  function send(string number, string message) {}
-}
+// contract SMS {
+//   function send(string number, string message) {}
+// }
 
 contract Callback {
   function on(address addr, string eventName, string functioncall) {
